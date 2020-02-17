@@ -1,0 +1,125 @@
+body{
+  background-color: #222222;
+  padding: 0px; margin: 0px;
+  color: #cccccc;
+}
+.body_class{
+}
+header{
+  background-color: #000000;
+  border-bottom: 3px solid #bbbbbb;
+  text-align: right;
+}
+#main_img{
+  padding: 10px;
+  margin-right: 20px;
+}
+.logo{
+  float: left;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 40px;
+  padding-top: 50px;
+}
+.container{/*내부의 float를 위해 hidden을 해서 전부 포함한다*/
+  overflow: hidden;
+}
+aside{
+  font-size: 1rem;
+  float: left;
+  width: 200px;
+  border-right: 3px solid #bbbbbb;
+}
+.border_list{
+  margin-right: 30 px;
+  border-bottom: 2px solid #bbbbbb;
+}
+section{
+  margin-left: 200px;
+  font-size: 1rem;
+  border-left: 3px solid #bbbbbb;
+}
+#m_search{
+  padding : 3px; margin: 0px;
+  border-bottom: 3px solid #bbbbbb;
+}
+article{
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.u_d_button{
+  display: table;
+}
+.u_button{
+  display: table-cell;
+}
+.d_button{
+  display: table-cell;
+}
+#in_title{
+  width: 100%;
+}
+#in_author{
+  width: 100%;
+}
+#in_description{
+  width: 100%;
+  min-height: 300px;
+  max-height: 100%;
+}
+footer{
+  font-size: 1rem;
+  background-color: #222222;
+  border-top: 3px solid #bbbbbb;
+  position: relative;
+  min-width: 100%;
+}
+.write_button{
+  float: right;
+  margin: 3px;
+  margin-right: 10px;
+}
+#footer_write{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+#test_button{
+  text-align: right;
+}
+
+
+
+/*테스트 온*/
+.test aside{background-color:limegreen;}
+.test #m_search{background-color: steelblue;}
+.test section{background-color: orange;}
+.test footer{background-color: purple;}
+.test header{background-color: darkblue;}
+.test{background-color: yellow;}
+/************글씨 관련***************/
+a{/*링크 색, 밑줄 없애기*/
+  text-decoration: none;
+  color: inherit;
+}
+.title_text{
+  font-size: 30pt;
+  border-bottom: 3px solid #444444;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.main_text{
+  margin-bottom: 50px;
+}
+.name_text{
+  padding-top: 10px;
+  font-size: 12pt;
+  border-top: 3px solid #444444;
+}
+.id_text{
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #444444;
+}
