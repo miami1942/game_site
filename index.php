@@ -9,7 +9,6 @@
     <meta charset="utf-8">
     <title>긍준의 게임세상</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style_skyrim.css">
   </head>
   <body id="target" class="">
     <div class="body_class">
