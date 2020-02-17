@@ -91,12 +91,12 @@ footer{
 
 
 /*테스트 온*/
-.test aside{background-color:limegreen;}
-.test #m_search{background-color: steelblue;}
-.test section{background-color: orange;}
+.test{background-color: saddlebrown;}
+.test header{background-color: chocolate;}
+.test aside{background-color:darkgreen;}
+.test #m_search{background-color: darkblue;}
+.test section{background-color: darkslategray;}
 .test footer{background-color: purple;}
-.test header{background-color: darkblue;}
-.test{background-color: yellow;}
 /************글씨 관련***************/
 a{/*링크 색, 밑줄 없애기*/
   text-decoration: none;
