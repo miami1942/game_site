@@ -32,7 +32,8 @@
         <?php
           //echo file_get_contents('txt/list.txt');
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li><a href="index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+            echo '<li><a href="index.php?id='.htmlspecialchars($row['id']).'">'
+            .htmlspecialchars($row['title']).'</a></li>'."\n";
           }
         ?>
         <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -72,20 +73,20 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
 
-            echo "<div class='title_text'>".$row['title']."</div>";
-            echo "<div class='main_text'>".$row['description']."</div>";
-            echo "<div class='name_text'>작성자 : ".$row['name']."<br/>
-            작성 날짜 : ".$row['created']."<br /></div>";
-            echo "<div class='id_text'>페이지번호 : ".$order_id."</div>";
+            echo "<div class='title_text'>".htmlspecialchars($row['title'])."</div>";
+            echo "<div class='main_text'>".htmlspecialchars($row['description'])."</div>";
+            echo "<div class='name_text'>작성자 : ".htmlspecialchars($row['name'])."<br/>
+            작성 날짜 : ".htmlspecialchars($row['created'])."<br /></div>";
+            echo "<div class='id_text'>페이지번호 : ".htmlspecialchars($order_id)."</div>";
 
             echo "
             <div class='u_d_button'>
-            <a href='update.php?id=".$order_id."'>
+            <a href='update.php?id=".htmlspecialchars($order_id)."'>
               <input type='button' id='db_update' value='수정'>
             </a>
             <form class='d_button' action='php/delete_process.php' method='post'>
               <input type='submit' id='db_delete' value='삭제'>
-              <input type='hidden' name='id' value=".$order_id.">
+              <input type='hidden' name='id' value=".htmlspecialchars($order_id).">
             </form>
             </div>";
           }//type='submit'은 form으로 전송하는것이다. button은 전송이안된다.

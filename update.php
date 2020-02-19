@@ -32,7 +32,8 @@
         <?php
           //echo file_get_contents('txt/list.txt');
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li><a href="index.php?id='.$row['id'].'">'.$row['title'].'</a></li>'."\n";
+            echo '<li><a href="index.php?id='.htmlspecialchars($row['id']).'">'
+            .htmlspecialchars($row['title']).'</a></li>'."\n";
           }
         ?>
         <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -67,18 +68,18 @@
 
             echo "
             <form action='php/update_process.php' method='post'>
-                <input type='hidden' name='id' value=".$row['c_id'].">
+                <input type='hidden' name='id' value=".htmlspecialchars($row['c_id']).">
               <p>
                 제목
-                <input type='text' name='title' value=".$row['title']." id='in_title'>
+                <input type='text' name='title' value=".htmlspecialchars($row['title'])." id='in_title'>
               </p>
               <p>
                 작성자
-                <input type='text' name='author' value=".$row['name']." id='in_author'>
+                <input type='text' name='author' value=".htmlspecialchars($row['name'])." id='in_author'>
               </p>
               <p>
                 본문
-                <textarea name='description' id='in_description'>".$row['description']."</textarea>
+                <textarea name='description' id='in_description'>".htmlspecialchars($row['description'])."</textarea>
               </p>
               <input type='submit' name='update_now' value='수정'>
             </form>
