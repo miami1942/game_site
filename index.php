@@ -90,8 +90,7 @@
             </div>";
           }//type='submit'은 form으로 전송하는것이다. button은 전송이안된다.
           else {
-            echo "환영합니다".'<br/>';
-            echo "이곳은 스카이림의 순서를 위한 게시판 입니다.";
+            echo file_get_contents('txt/main_write.txt');
           }
           ?>
         </article>
