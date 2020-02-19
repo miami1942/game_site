@@ -73,11 +73,11 @@
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_assoc($result);
 
-            echo "<div class='title_text'>".htmlspecialchars($row['title'])."</div>";
-            echo "<div class='main_text'>".htmlspecialchars($row['description'])."</div>";
-            echo "<div class='name_text'>작성자 : ".htmlspecialchars($row['name'])."<br/>
-            작성 날짜 : ".htmlspecialchars($row['created'])."<br /></div>";
-            echo "<div class='id_text'>페이지번호 : ".htmlspecialchars($order_id)."</div>";
+            echo "<div class='title_text'>".strip_tags($row['title'],'<br/><br>')."</div>";
+            echo "<div class='main_text'>".strip_tags($row['description'],'<br/><br>')."</div>";
+            echo "<div class='name_text'>작성자 : ".strip_tags($row['name'],'<br/><br>')."<br/>
+            작성 날짜 : ".strip_tags($row['created'],'<br/><br>')."<br /></div>";
+            echo "<div class='id_text'>페이지번호 : ".strip_tags($order_id,'<br/><br>')."</div>";
 
             echo "
             <div class='u_d_button'>
