@@ -7,14 +7,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>긍준의 게임세상</title>
+    <title>
+      <?php echo file_get_contents('txt/title_write.txt'); ?>
+    </title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body id="target" class="">
     <div class="body_class">
     <!--********헤더*********-->
     <header>
-      <h1 class="logo">긍준의 게임세상</h1>
+      <h1 class="logo">
+        <?php echo file_get_contents('txt/header_write.txt'); ?>
+      </h1>
       <a href="index.php">
         <img id="main_img" src="images/main_image.png"
              width="200" height="150">

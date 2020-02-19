@@ -24,5 +24,5 @@
   WHERE id= ".$order_id;
   $result = mysqli_query($conn, $sql);
 
-  header('location:../index.php');
+  header('location:../index.php?id='.$order_id);
 ?>
