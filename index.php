@@ -2,6 +2,7 @@
   $conn = mysqli_connect("localhost", "root", "wkdgmd7093");
   mysqli_select_db($conn,"skyrim");
   $result = mysqli_query($conn, "SELECT * FROM chronological_order");
+  $now_login = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,6 +29,40 @@
     <div class="container">
       <!--******리스트******-->
       <aside>
+        <div class="login_screen">
+          <?php
+            $var_name = "Dovakin";//임시로 변수 지정
+            $var_id = 1;//임시로 변수 지정
+            if ($now_login==0) {
+              echo "
+              <form action='php/login_process.php' method='post'>
+                <div class='login_text'>
+                  아이디<input type='text' name='login_id' value=''>
+                  비밀번호<input type='text' name='login_pw' value=''>
+                </div>
+                <div class='login_button'>
+                  <input type='submit' name='login_button' value='로그인'>
+                  <a href='sign_up.php'>
+                  <input type='button' name='sign_button' value='회원가입'>
+                  </a>
+                </div>
+              </form>
+              ";
+            }
+            else {
+              echo "
+              <div class='login_text'>
+                -접속중-<br/><br/>
+                이름 : ".$var_name."<br/>
+                회원번호 : ".$var_id."
+              </div>
+              <div class='logout_button'>
+                <input type='button' name='logout_button' value='로그아웃'>
+              </div>
+              ";
+            }
+          ?>
+        </div>
         <ul>
         <?php
           //echo file_get_contents('txt/list.txt');
@@ -44,9 +79,15 @@
         <!--******검색******-->
       <div>
         <div class="write_button">
-          <a href="write.php">
-            <input type="button" value="새 글쓰기" id="write"/>
-          </a>
+          <?php
+          if ($now_login==1) {
+            echo "
+            <a href='write.php'>
+              <input type='button' value='새 글쓰기' id='write'/>
+            </a>
+            ";
+          }
+          ?>
         </div>
         <form id="m_search" action="php/main.php">
           페이지 이동(테스트)
@@ -79,16 +120,18 @@
             작성 날짜 : ".strip_tags($row['created'],'<br/><br>')."<br /></div>";
             echo "<div class='id_text'>페이지번호 : ".strip_tags($order_id,'<br/><br>')."</div>";
 
-            echo "
-            <div class='u_d_button'>
-            <a href='update.php?id=".htmlspecialchars($order_id)."'>
-              <input type='button' id='db_update' value='수정'>
-            </a>
-            <form class='d_button' action='php/delete_process.php' method='post'>
-              <input type='submit' id='db_delete' value='삭제'>
-              <input type='hidden' name='id' value=".htmlspecialchars($order_id).">
-            </form>
-            </div>";
+            if ($now_login==1) {
+              echo "
+              <div class='u_d_button'>
+              <a href='update.php?id=".htmlspecialchars($order_id)."'>
+                <input type='button' id='db_update' value='수정'>
+              </a>
+              <form class='d_button' action='php/delete_process.php' method='post'>
+                <input type='submit' id='db_delete' value='삭제'>
+                <input type='hidden' name='id' value=".htmlspecialchars($order_id).">
+              </form>
+              </div>";
+            }
           }//type='submit'은 form으로 전송하는것이다. button은 전송이안된다.
           else {
             echo file_get_contents('txt/main_write.txt');

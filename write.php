@@ -28,6 +28,41 @@
     <div class="container">
       <!--******리스트******-->
       <aside>
+        <div class="login_screen">
+          <?php
+            $var_name = "Dovakin";//임시로 변수 지정
+            $var_id = 1;//임시로 변수 지정
+            $now_login = 0;
+            if ($now_login==0) {
+              echo "
+              <form action='php/login_process.php' method='post'>
+                <div class='login_text'>
+                  아이디<input type='text' name='login_id' value=''>
+                  비밀번호<input type='text' name='login_pw' value=''>
+                </div>
+                <div class='login_button'>
+                  <input type='submit' name='login_button' value='로그인'>
+                  <a href='sign_up.php'>
+                  <input type='button' name='sign_button' value='회원가입'>
+                  </a>
+                </div>
+              </form>
+              ";
+            }
+            else {
+              echo "
+              <div class='login_text'>
+                -접속중-<br/><br/>
+                이름 : ".$var_name."<br/>
+                회원번호 : ".$var_id."
+              </div>
+              <div class='logout_button'>
+                <input type='button' name='logout_button' value='로그아웃'>
+              </div>
+              ";
+            }
+          ?>
+        </div>
         <ul>
         <?php
           //echo file_get_contents('txt/list.txt');
