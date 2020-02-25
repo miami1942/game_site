@@ -1,4 +1,6 @@
 <?php
+  session_start();
+
   $conn = mysqli_connect("localhost", "root", "wkdgmd7093");
   mysqli_select_db($conn,"skyrim");
   $sql = "SELECT * FROM user WHERE name='".$_POST['author']."'";
@@ -16,7 +18,7 @@
   }
 
   $sql = "INSERT INTO chronological_order (author, title, description)
-  VALUES('".$user_id."','".$_POST['title']."','".$_POST['description']."')";
+  VALUES('".$_SESSION['user_id']."','".$_POST['title']."','".$_POST['description']."')";
   $result = mysqli_query($conn, $sql);
 
   header('location:../index.php');

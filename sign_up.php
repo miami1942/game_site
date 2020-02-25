@@ -76,28 +76,29 @@
       <!--******메인******-->
       <section>
         <!--******검색******-->
-      <div>
-        <div class="write_button">
-          <a href="index.php">
-            <input type="button" value="가입 종료" id="exit"/>
-          </a>
+        <div class="m_search">
+          <div class="write_button">
+            <?php
+            if ($now_login==1) {
+              echo "
+              <a href='write.php'>
+                <input type='button' value='새 글쓰기' id='write'/>
+              </a>
+              ";
+            }
+            ?>
+          </div>
         </div>
-        <form id="m_search" action="php/main.php">
-          페이지 이동(테스트)
-          <input type="text" name="page_num">
-          <input type="submit" name="submit" value="이동">
-        </form>
-      </div>
         <!--******내용******-->
         <article>
           <form action="php/sign_up_process.php" method="post">
             <p>
-              사용자 이름
-              <input type="text" name="title" id="in_title">
+              사용자 이름<br/>
+              <input type="text" name="user_name" id="in_title">
             </p>
             <p>
-              비밀번호
-              <input type="text" name="author" id="in_author">
+              비밀번호<br/>
+              <input type="text" name="user_pw" id="in_author">
             </p>
             <input type="submit" name="sign_up_now" value="회원가입">
           </form>

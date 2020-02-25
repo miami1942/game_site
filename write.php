@@ -1,7 +1,14 @@
 <?php
+  session_start();
+
   $conn = mysqli_connect("localhost", "root", "wkdgmd7093");
   mysqli_select_db($conn,"skyrim");
   $result = mysqli_query($conn, "SELECT * FROM chronological_order");
+
+  $now_login = 0;
+  if (isset($_SESSION['user_id'])) {
+    $now_login = 1;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -30,9 +37,6 @@
       <aside>
         <div class="login_screen">
           <?php
-            $var_name = "Dovakin";//임시로 변수 지정
-            $var_id = 1;//임시로 변수 지정
-            $now_login = 0;
             if ($now_login==0) {
               echo "
               <form action='php/login_process.php' method='post'>
@@ -53,8 +57,8 @@
               echo "
               <div class='login_text'>
                 -접속중-<br/><br/>
-                이름 : ".$var_name."<br/>
-                회원번호 : ".$var_id."
+                이름 : ".$_SESSION['user_name']."<br/>
+                회원번호 : ".$_SESSION['user_id']."
               </div>
               <div class='logout_button'>
                 <input type='button' name='logout_button' value='로그아웃'>
@@ -76,28 +80,25 @@
       <!--******메인******-->
       <section>
         <!--******검색******-->
-      <div>
-        <div class="write_button">
-          <a href="index.php">
-            <input type="button" value="쓰기 종료" id="exit"/>
-          </a>
+        <div class="m_search">
+          <div class="write_button">
+            <?php
+            if ($now_login==1) {
+              echo "
+              <a href='write.php'>
+                <input type='button' value='새 글쓰기' id='write'/>
+              </a>
+              ";
+            }
+            ?>
+          </div>
         </div>
-        <form id="m_search" action="php/main.php">
-          페이지 이동(테스트)
-          <input type="text" name="page_num">
-          <input type="submit" name="submit" value="이동">
-        </form>
-      </div>
         <!--******내용******-->
         <article>
           <form action="php/write_process.php" method="post">
             <p>
               제목
               <input type="text" name="title" id="in_title">
-            </p>
-            <p>
-              작성자
-              <input type="text" name="author" id="in_author">
             </p>
             <p>
               본문
