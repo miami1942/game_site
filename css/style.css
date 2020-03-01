@@ -3,8 +3,6 @@ body{
   padding: 0px; margin: 0px;
   color: #cccccc;
 }
-.body_class{
-}
 header{
   background-color: #000000;
   border-bottom: 3px solid #bbbbbb;
@@ -19,7 +17,7 @@ header{
   font-size: 30px;
   font-weight: bold;
   padding-left: 40px;
-  padding-top: 50px;
+  padding-top: 67px;
 }
 .container{/*내부의 float를 위해 hidden을 해서 전부 포함한다*/
   overflow: hidden;
@@ -72,6 +70,7 @@ article{
   padding-top: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 15px;
 }
 .u_d_button{
   display: table;
@@ -83,15 +82,26 @@ article{
   display: table-cell;
 }
 #in_title{
-  width: 170px;
-}
-#in_author{
-  width: 170px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 17px;
+  max-height: 17px;
 }
 #in_description{
   width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   min-height: 300px;
   max-height: 100%;
+}
+#in_title_sign{
+  width: 170px;
+}
+#in_author_sign{
+  width: 170px;
+}
+#db_update{
 }
 footer{
   font-size: 1rem;

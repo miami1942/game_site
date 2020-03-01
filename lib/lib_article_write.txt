@@ -1,0 +1,11 @@
+<form action="php/write_process.php" method="post">
+  <p>
+    제목
+    <input type="text" name="title" id="in_title">
+  </p>
+  <p>
+    본문
+    <textarea name="description" id="in_description"></textarea>
+  </p>
+  <input type="submit" name="write_now" value="저장">
+</form>

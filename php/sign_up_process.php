@@ -1,6 +1,7 @@
 <?php
-  $conn = mysqli_connect("localhost", "root", "wkdgmd7093");
-  mysqli_select_db($conn,"skyrim");
+  require("../config/config_user.php");
+  require("../lib/lib_db_in.php");//여기에 db_in.php 내용 추가
+  $conn = db_init($config['db_host'], $config['db_user'], $config['db_pw'], $config['db_name']);
   $var_name = mysqli_real_escape_string($conn, $_POST['user_name']);
   $var_pw = mysqli_real_escape_string($conn, $_POST['user_pw']);
   $sql = "SELECT * FROM user WHERE name='".$var_name."'";

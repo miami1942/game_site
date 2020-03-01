@@ -1,8 +1,10 @@
 <?php
   session_start();
 
-  $conn = mysqli_connect("localhost", "root", "wkdgmd7093");
-  mysqli_select_db($conn,"skyrim");
+  require("../config/config_user.php");
+  require("../lib/lib_db_in.php");//여기에 db_in.php 내용 추가
+  $conn = db_init($config['db_host'], $config['db_user'], $config['db_pw'], $config['db_name']);
+  /*
   $sql = "SELECT * FROM user WHERE name='".$_POST['author']."'";
   $result = mysqli_query($conn, $sql);
 
@@ -15,7 +17,7 @@
   else{
     $row = mysqli_fetch_assoc($result);
     $user_id = $row['id'];
-  }
+  }*/
 
   $sql = "INSERT INTO chronological_order (author, title, description)
   VALUES('".$_SESSION['user_id']."','".$_POST['title']."','".$_POST['description']."')";

@@ -1,0 +1,11 @@
+<form action="php/sign_up_process.php" method="post">
+  <p>
+    사용자 이름<br/>
+    <input type="text" name="user_name" id="in_title_sign">
+  </p>
+  <p>
+    비밀번호<br/>
+    <input type="text" name="user_pw" id="in_author_sign">
+  </p>
+  <input type="submit" name="sign_up_now" value="회원가입">
+</form>
